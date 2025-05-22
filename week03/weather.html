@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/weather.js" defer></script>
+    <title>Weather API Test</title>
+</head>
+
+<body>
+    <h1>Weather API Demo</h1>
+    <p id="weather-data">Fetching weather...</p>
+
+    <script>
+        async function getWeather(city) {
+            const apiKey = "f1999393ce294ea3bf8185645252005";
+            const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+
+            console.log("Fetching data from:", url); // Logs the request URL
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                document.getElementById("weather-data").textContent = `Current weather in ${data.location.name}, ${data.location.country}: ${data.current.condition.text}, ${data.current.temp_c}°C`;
+
+            } catch (error) {
+                console.error("Error fetching weather data:", error);
+                document.getElementById("weather-data").textContent = "Failed to fetch weather data.";
+            }
+        }
+
+        getWeather("Tokyo");
+    </script>
+</body>
+
+</html>

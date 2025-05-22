@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoDB Cities API Test</title>
+    <link rel="stylesheet" href="./styles/location.css">
+    <script src="./scripts/location.js" defer></script>
+</head>
+
+<body>
+    <input type="text" id="start-location" placeholder="Start city">
+    <input type="text" id="start-country" placeholder="Start country (e.g., FR for France)">
+
+    <input type="text" id="end-location" placeholder="End city">
+    <input type="text" id="end-country" placeholder="End country (e.g., US for USA)">
+
+    <button onclick="getLocationData()">City Lookup</button>
+    <div id="location-info"></div>
+</body>
+
+
+</html>

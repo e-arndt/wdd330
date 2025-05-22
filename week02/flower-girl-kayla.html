@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="showContent()">Show hidden content</button>
+    
+    <template>
+        <h2>Flower Girl</h2>
+        <img src="white-flower-girl-kayla.png" width="198" height="285">
+    </template>
+    
+    <script>
+        function showContent() {
+            let temp = document.getElementsByTagName("template")[0];
+            let clon = temp.content.cloneNode(true);
+            document.body.appendChild(clon);
+        }
+    </script>
+    
+</body>
+</html>

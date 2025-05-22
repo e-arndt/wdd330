@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background-color: rgb(32, 22, 22);
+}
+
+button {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #005f73;
+}
+
+h2 {
+    color: ghostwhite;
+}
+
+p {
+    color: ghostwhite;
+}
+
+img {
+    width: 10%;
+    height: auto;
+    border: 2px solid ghostwhite;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#location-info {
+    color: ghostwhite;
+}

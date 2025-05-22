@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="showContent()">Show hidden content</button>
+
+    <template id="prophet-card">
+        <section class="card">
+            <h2></h2>
+            <p></p>
+            <p></p>
+            <img class="profile" src="" alt="" loading="lazy" width="200" height="300">
+        </section>
+        </template>
+
+    <script>
+        async function showContent() {
+                // Fetch the JSON data from the provided URL
+                let response = await fetch("https://brotherblazzard.github.io/canvas-content/latter-day-prophets.json");
+                let data = await response.json();
+
+                // Get the template reference
+                let temp = document.getElementById("prophet-card");
+
+                data.prophets.forEach(prophet => {
+                    // Clone the template content
+                    let clon = temp.content.cloneNode(true);
+
+                    // Select elements inside the cloned template
+                    let h2 = clon.querySelector("h2");
+                    let pBirthDate = clon.querySelector("p:nth-of-type(1)");
+                    let pBirthPlace = clon.querySelector("p:nth-of-type(2)");
+                    let img = clon.querySelector("img");
+
+                    // Populate elements with prophet data
+                    h2.textContent = `${prophet.name} ${prophet.lastname}`;
+                    pBirthDate.textContent = `Birth Date: ${prophet.birthdate}`;
+                    pBirthPlace.textContent = `Birth Place: ${prophet.birthplace}`;
+                    img.src = prophet.imageurl;
+                    img.alt = `Portrait of ${prophet.name} ${prophet.lastname}`;
+
+                    // Append cloned and populated template to the body
+                    document.body.appendChild(clon);
+                });
+            }
+
+    </script>
+
+</body>
+
+</html>
