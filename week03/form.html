@@ -1,0 +1,32 @@
+<form id="formElem"> // Set a form with an id
+    <input type="text" name="name" value="John"> // inputs
+    <input type="text" name="surname" value="Smith">
+    <input type="submit">
+</form>
+
+<script>
+    // Listen for when the html page is loaded
+    document.addEventListener("DOMContentLoaded", () => {
+        // perform this once page load complete
+        // assign the form to the variable called formElem
+        const formElem = document.getElementById("formElem");
+
+        // Listen for the Submit button
+        formElem.addEventListener("submit", (e) => {
+            // On submit, prevent the page from reloading
+            e.preventDefault();
+
+            // Gather the data from the inputs and store in formData
+            const formData = new FormData(formElem);
+
+            // Append the current date to the formData in the form of a key / value pair (key: submissionDate: actual time/date)
+            formData.append("submissionDate", new Date().toISOString());
+
+            // Log to the console the collected form data, one key / value pair at a time
+            for (const [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+        });
+    });
+</script>
+  
